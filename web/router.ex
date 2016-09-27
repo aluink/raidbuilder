@@ -1,15 +1,13 @@
 defmodule Raidbuilder.Router do
-  use Raidbuilder.Web, :router
+  use Phoenix.Router, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", Raidbuilder do
-    pipe_through :api # Use the default browser stack
+  scope "/api", Raidbuilder do
+    pipe_through :api
 
-    get "/", PageController, :index
-    get "/foo", PageController, :foo
+    resources "/players", PlayerController
   end
-
 end
