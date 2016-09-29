@@ -5,11 +5,10 @@ defmodule Raidbuilder.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Raidbuilder do
+  scope "/api", Raidbuilder do
     pipe_through :api # Use the default browser stack
 
-    get "/", PageController, :index
-    get "/foo", PageController, :foo
+    resources "/players", PlayerController
   end
 
 end
