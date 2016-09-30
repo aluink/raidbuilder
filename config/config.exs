@@ -5,6 +5,13 @@
 # is restricted to this project.
 use Mix.Config
 
+config :phoenix, :format_encoders,  
+  "json-api": Poison
+
+  config :mime, :types, %{
+    "application/vnd.api+json" => ["json-api"]
+  }
+
 # General application configuration
 config :raidbuilder,
   ecto_repos: [Raidbuilder.Repo]

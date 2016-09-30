@@ -5,7 +5,6 @@ defmodule Raidbuilder.PlayerController do
   plug :action
 
   def index(conn, _params) do
-    players = Repo.all(Player)
-    render conn, players: players
+    render conn, players: Repo.all(Player)
   end
 end
